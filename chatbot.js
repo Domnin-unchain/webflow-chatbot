@@ -1,5 +1,4 @@
-<script>
-  // Wait for all resources to be loaded
+
   window.addEventListener('load', function() {
     // First load required CSS
     const loadCSS = (url) => {
@@ -86,4 +85,3 @@
       document.body.appendChild(script);
     });
   });
-</script>
