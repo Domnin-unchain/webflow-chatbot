@@ -1,8 +1,3 @@
-// First create wrapper
-const wrapper = document.createElement('div');
-wrapper.className = 'madame-chatbot-wrapper';
-
-// Define chatbot HTML
 const chatbotCode = `
     <!-- Chat toggle button -->
     <button id="chat-toggle" class="fixed bottom-6 right-6 btn-luxury animate-pop shadow-luxury float-animation p-4 rounded-2xl">
@@ -52,13 +47,6 @@ const chatbotCode = `
         </div>
       </div>
     </div>
-`;
-
-// Add the chatbot HTML to wrapper
-wrapper.innerHTML = chatbotCode;
-
-// Add required resources
-const resources = `
     <!-- Required CSS -->
     <link href="https://cdn.jsdelivr.net/gh/p451/chatbot-assets@master/dist/output.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/gh/p451/chatbot-assets@master/src/custom.css" rel="stylesheet">
@@ -67,7 +55,4 @@ const resources = `
     <!-- Required JS -->
     <script src="https://cdn.jsdelivr.net/gh/p451/chatbot-assets@master/script.js"></script>
 `;
-
-// Insert wrapper and resources
-document.body.appendChild(wrapper);
-document.head.insertAdjacentHTML('beforeend', resources);
+document.body.insertAdjacentHTML('beforeend', chatbotCode);
