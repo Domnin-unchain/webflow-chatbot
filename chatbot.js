@@ -12,7 +12,7 @@ const chatbotCode = `
         </div>
         
         <div id="chat-inputs" class="p-6"></div>
-
+        <div class="h-2"></div>
         <div class="chat-footer p-4 flex items-center justify-between glassmorphism-container">
           <div class="flex gap-2">
             <button class="lang-btn" data-lang="fi" title="Suomi">
