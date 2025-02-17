@@ -1,5 +1,5 @@
 (function() {
-    function init() {
+    const initChatbot = () => {
         const chatbotHTML = `
             <button id="chat-toggle" class="fixed bottom-6 right-6 btn-luxury animate-pop shadow-luxury float-animation p-4 rounded-2xl">
                 <span class="text-2xl">💬</span>
@@ -81,12 +81,8 @@
         const container = document.createElement('div');
         container.innerHTML = chatbotHTML;
         document.body.appendChild(container);
-    }
+    };
 
-    // Check if Webflow has loaded
-    if (document.readyState === 'complete') {
-        init();
-    } else {
-        window.addEventListener('load', init);
-    }
+    // Simple DOM ready check
+    document.readyState === 'complete' ? initChatbot() : window.addEventListener('load', initChatbot);
 })();
