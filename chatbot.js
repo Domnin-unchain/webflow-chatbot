@@ -1,3 +1,4 @@
+<script>
 (function() {
     const initChatbot = () => {
         const chatbotHTML = `
@@ -49,7 +50,6 @@
             </div>
         `;
 
-        // Add required CSS
         const styles = document.createElement('style');
         styles.textContent = `
             .hidden { display: none !important; }
@@ -57,7 +57,6 @@
         `;
         document.head.appendChild(styles);
 
-        // Add required resources
         const resources = [
             { type: 'link', href: 'https://cdn.jsdelivr.net/gh/p451/chatbot-assets@master/dist/output.css' },
             { type: 'link', href: 'https://cdn.jsdelivr.net/gh/p451/chatbot-assets@master/src/custom.css' },
@@ -77,12 +76,11 @@
             document.head.appendChild(el);
         });
 
-        // Insert chatbot HTML
         const container = document.createElement('div');
         container.innerHTML = chatbotHTML;
         document.body.appendChild(container);
     };
 
-    // Simple DOM ready check
     document.readyState === 'complete' ? initChatbot() : window.addEventListener('load', initChatbot);
 })();
+</script>
