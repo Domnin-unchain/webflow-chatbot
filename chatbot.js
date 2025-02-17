@@ -1,6 +1,14 @@
-<script>
 (function() {
-    const initChatbot = () => {
+    const initChatbot = async () => {
+        // Load script.js first
+        await new Promise((resolve, reject) => {
+            const script = document.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/gh/p451/chatbot-assets@master/script.js';
+            script.onload = resolve;
+            script.onerror = reject;
+            document.head.appendChild(script);
+        });
+
         const chatbotHTML = `
             <button id="chat-toggle" class="fixed bottom-6 right-6 btn-luxury animate-pop shadow-luxury float-animation p-4 rounded-2xl">
                 <span class="text-2xl">💬</span>
@@ -50,6 +58,7 @@
             </div>
         `;
 
+        // Add required CSS
         const styles = document.createElement('style');
         styles.textContent = `
             .hidden { display: none !important; }
@@ -57,30 +66,27 @@
         `;
         document.head.appendChild(styles);
 
+        // Add other resources
         const resources = [
             { type: 'link', href: 'https://cdn.jsdelivr.net/gh/p451/chatbot-assets@master/dist/output.css' },
             { type: 'link', href: 'https://cdn.jsdelivr.net/gh/p451/chatbot-assets@master/src/custom.css' },
             { type: 'link', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css' },
-            { type: 'link', href: 'https://fonts.googleapis.com/css2?family=Gilda+Display&display=swap' },
-            { type: 'script', src: 'https://cdn.jsdelivr.net/gh/p451/chatbot-assets@master/script.js' }
+            { type: 'link', href: 'https://fonts.googleapis.com/css2?family=Gilda+Display&display=swap' }
         ];
 
         resources.forEach(resource => {
             const el = document.createElement(resource.type);
-            if (resource.type === 'link') {
-                el.rel = 'stylesheet';
-                el.href = resource.href;
-            } else {
-                el.src = resource.src;
-            }
+            el.rel = 'stylesheet';
+            el.href = resource.href;
             document.head.appendChild(el);
         });
 
+        // Insert chatbot HTML
         const container = document.createElement('div');
         container.innerHTML = chatbotHTML;
         document.body.appendChild(container);
     };
 
+    // Simple DOM ready check
     document.readyState === 'complete' ? initChatbot() : window.addEventListener('load', initChatbot);
 })();
-</script>
