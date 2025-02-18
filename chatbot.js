@@ -13,7 +13,8 @@ const chatbotCode = `
                 <div id="chat-inputs" class="p-6"></div>
                 <div class="h-2"></div>
                 <div class="chat-footer p-4 flex items-center justify-between glassmorphism-container">
-                    <div class="flex gap-2">
+                    <!-- Language buttons - left -->
+                    <div class="flex gap-2 language-group">
                         <button class="lang-btn" data-lang="fi" title="Suomi">
                             <img src="https://flagcdn.com/w20/fi.png" alt="Finnish" class="rounded">
                         </button>
@@ -24,7 +25,8 @@ const chatbotCode = `
                             <img src="https://flagcdn.com/w20/fr.png" alt="French" class="rounded">
                         </button>
                     </div>
-                    <div class="flex gap-3">
+                    <!-- Control buttons - center -->
+                    <div class="flex gap-3 control-group">
                         <button id="chat-reset" class="control-btn" title="Aloita alusta">
                             <i class="fas fa-redo text-lg"></i>
                         </button>
@@ -32,15 +34,16 @@ const chatbotCode = `
                             <i class="fas fa-times text-lg"></i>
                         </button>
                     </div>
-                    <div class="flex gap-8">
+                    <!-- Contact links - right -->
+                    <div class="flex gap-2 contact-group">
+                        <a href="tel:+358401234567" class="contact-link" title="Soita meille">
+                            <i class="fas fa-phone text-lg"></i>
+                        </a>
                         <a href="mailto:antoni.duhov@gmail.com" class="contact-link" title="Lähetä sähköpostia">
-                            <i class="fas fa-envelope text-xl"></i>
+                            <i class="fas fa-envelope text-lg"></i>
                         </a>
                         <a href="https://wa.me/358504719828" class="contact-link" title="WhatsApp" target="_blank">
-                            <i class="fab fa-whatsapp text-xl"></i>
-                        </a>
-                        <a href="tel:+358401234567" class="contact-link" title="Soita meille">
-                            <i class="fas fa-phone text-xl"></i>
+                            <i class="fab fa-whatsapp text-lg"></i>
                         </a>
                     </div>
                 </div>
@@ -54,10 +57,9 @@ const chatbotCode = `
     <script src="https://cdn.jsdelivr.net/gh/p451/chatbot-assets@master/script.js"></script>
 `;
 
-// Insert chatbot HTML
+// Rest of the code stays the same
 document.body.insertAdjacentHTML('beforeend', chatbotCode);
 
-// Load stylesheets
 const links = [
     "https://cdn.jsdelivr.net/gh/p451/chatbot-assets@master/dist/output.css",
     "https://cdn.jsdelivr.net/gh/p451/chatbot-assets@master/src/custom.css",
@@ -72,7 +74,6 @@ links.forEach(href => {
     document.head.appendChild(link);
 });
 
-// Load and init script
 const script = document.createElement('script');
 script.src = "https://cdn.jsdelivr.net/gh/p451/chatbot-assets@master/script.js";
 script.onload = () => window.initChatbot?.();
