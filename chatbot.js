@@ -1,6 +1,6 @@
 (function() {
     const chatbotCode = `
-        <div id="chatbot-container" style="position: relative; z-index: 99999;">
+        <div id="chatbot-container" style="position: fixed; z-index: 99999;">
             <button id="chat-toggle" class="fixed bottom-6 right-6 btn-luxury animate-pop shadow-luxury float-animation p-4 rounded-2xl z-[9999]">
                 <span class="text-2xl">💬</span>
             </button>
